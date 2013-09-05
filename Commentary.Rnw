@@ -1,0 +1,30 @@
+\documentclass{aRTICLE}
+
+\begin{document}
+I have manually changed the EUR-USD to USD-EUR by changing the file names to EUR for the USD in terms of EUR and EURUSD for the conventional EUR in terms of USD.
+
+This function will calculate the forward rate and profits and return a data frame with the result 
+
+\begin{verbatim}
+forw <- function(fx, b, m){
+  M <- paste(m, "M", sep = "")
+  ra <- paste(fx, M, sep = "")
+  ra2 <- paste(b, M, sep = "")
+# this line to to name the column in the dataframe but does not work yet
+  fw <- paste(ra, "f", sep = "")
+  title <- paste(fx, "-", b, "fw", sep = "")
+  das <- subset(da, select = c(fx, ra, ra2))
+  das$fw <- ((1 + das[,2]/100)^(m/12))/((1 + das[,3]/100)^(m/12))*das[,1]
+  plot(da[,4], type = 'l', main = fw)
+  daz <- as.zoo(das)
+  daz$l <- lag(daz[,1], k = m)
+  daz$p <- ((daz[,1]*(1 + daz[,2]/100)^(m/12))*(1/daz[,5]))/
+    (1 + daz[,3]/100)^(m/12)
+  }
+das <- forw(fx = "HUF", b = "EUR", m = 1)
+\end{verbatim}
+The profits are the ratio of the return on UIP relative to funding costs.  
+
+
+
+\end{document}
