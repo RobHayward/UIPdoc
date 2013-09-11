@@ -54,4 +54,7 @@ ISK & 120.0000 & 1.0051 & 0.1069 & 1.0078 & 0.0473 & -0.7437 & 0.4399 & 4.5471 &
 \end{center}
 \end{table}
 
+\section{Charts for Moderation and Calm}
+Need to have a system for creating and naming data.frames.  This can be a list of data.frames that are all the same investment currency with alternating funding currencies.  Then use this for Poland (in this case)
+
 \end{document}
