@@ -7,7 +7,7 @@ d <- forp(fx = "PLN", b = "CHF", m = 1)
 # Subset for Crisis (C) and Moderation (M)
 Datac <- subset(d$data, VIX > 30)
 Datam <- subset(d$data, VIX < 20)
-pdf("hist1a.pdf", paper= "a4", width = 9, title = "PLN Carry trade")
+pdf("hist1a.pdf", paper= "a4r", width = 9, title = "PLN Carry trade")
 par(mfcol=c(2,2), oma = c(0,0, 0,0))
 plot(density(Datac$p, na.rm = TRUE), main = "PLNCHF Carry Trade", 
      col = 'red', lwd= 2, xlim = c(0.80, 1.15))
@@ -16,7 +16,7 @@ text(x = .94, y = 2, labels = "Mean")
 plot(density(Datam$p, na.rm = TRUE), main = "PLNCHF carry in Moderation", 
      col = 'red',lwd = 2, xlim = c(0.80, 1.15))
 abline(v = mean(Datam$p, na.rm = TRUE))
-text(x = 1.02, y = 14, labels = "Mean")
+text(x = 1.04, y = 14, labels = "Mean")
 # USD ------------------------------------------------
 d <- forp(fx = "PLN", b = "USD", m = 1)
 # Subset for Crisis (C) and Moderation (M)---------------------------
@@ -37,7 +37,7 @@ d <- forp(fx = "PLN", b = "JPY", m = 1)
 # Subset for Crisis (C) and Moderation (M)
 Datac <- subset(d$data, VIX > 30)
 Datam <- subset(d$data, VIX < 20)
-pdf("hist2a.pdf", paper= "a4", width = 9, title = "PLN carry in crisis")
+pdf("hist2a.pdf", paper= "a4r", width = 9, title = "PLN carry in crisis")
 par(mfcol=c(2,2), oma = c(0,0, 0,0))
 plot(density(Datac$p, na.rm = TRUE), main = "PLNJPY Carry Trade", 
      col = 'red', lwd= 2, xlim = c(0.70, 1.20))
