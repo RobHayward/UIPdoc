@@ -8,7 +8,7 @@ require(zoo)
 da$DATE <- as.Date(da$DATE, format = "%d/%m/%Y")
 daz <- as.zoo(da[28], order.by = da$DATE)
 head(daz)
-pdf("VIX.pdf", paper= "a4", width = 8, title = "VIX")
+pdf("VIX2.pdf", paper= "a4", width = 10, title = "VIX")
 par(omi = c(0,0,0,0))
 plot(daz$VIX, type = 'l', main = "VIX Index", ylab = "VIX", 
      xlab = "Date")

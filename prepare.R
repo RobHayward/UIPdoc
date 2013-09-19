@@ -1,5 +1,5 @@
 rm(list = ls())
 da <- read.csv("UIPdata2.csv", header = TRUE)
-da$Date <- as.Date(da$OBS, format = "%Y-%m")
+da$DATE <- as.Date(da$DATE, format = "%d/%m/%Y")
 head(da)
 str(da)

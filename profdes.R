@@ -1,16 +1,17 @@
 # Calculate descriptive statistics and create table
-# Need to adjust the b = currency and m = months.  
-Mat <- matrix(NA, nrow = 12, ncol = 11)
+# Need to adjust the b = currency and m = months. 
+# d <- forp(fx = "PLN", b = "EUR", m = 1)
+Mat <- matrix(NA, nrow = 13, ncol = 11)
 j = 1
-for(i in  c("ISK", "RON", "PLN", "RUB", "HUF", "TRY", "UAH", "NOK", 
-            "LVL", "HRK", "CZK", "BGN")){
-  das <- forp(fx = i, b = "JPY", m = 3)
-Mat[j,] <- mystats(das$p, na.omit = TRUE)
+for(i in  c("BGN", "EEK", "LVL", "HRK", "RON", "RUB", "UAH", "HUF", 
+            "PLN", "CZK", "NOK",  "ISK", "TRY")){
+  das <- forp(fx = i, b = "EUR", m = 1)
+Mat[j,] <- mystatsm(das$data$p, na.omit = TRUE)
 j = j +1
 }
 
-rownames(Mat) <- c("ISK", "RON", "PLN", "RUB", "HUF", "TRY", "UAH", "NOK", 
-                   "LVL", "HRK", "CZK", "BGN")
+rownames(Mat) <- c("BGN", "EEK", "LVL", "HRK", "RON", "RUB", "UAH", "HUF", 
+                   "PLN", "CZK", "NOK",  "ISK", "TRY")
 colnames(Mat) <- c("No", "Mean", "tstat", "Median", "Stdev", "Skew", "2SES",
                    "Kurt", "2SEK", "Max", "Min")
 Mat

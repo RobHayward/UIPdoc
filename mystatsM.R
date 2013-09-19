@@ -1,4 +1,6 @@
-mystats <- function(x, na.omit=FALSE){
+# called mystatsm becuase it is modified to calculate annualised return.  
+# This has to be input.
+mystatsm <- function(x, na.omit=FALSE){
   if (na.omit)
     x <- x[!is.na(x)]
   n <- length(x)
@@ -12,6 +14,6 @@ mystats <- function(x, na.omit=FALSE){
   sek <- ((n^2-1)/((n-3)*(n + 5)))^0.5
   max <- max(x)
   min <- min(x)
-  return(c(n=n, mean=m, t= t, medium = med, stdev=s, skew=skew, ps = 2*ses, 
-           kurtosis=kurt, pk = 2*sek, max = max-1, min = min-1))
+  return(c(n=n, 100*(mean=(m^12)-1), t= t, medium = med, stdev=s, skew=skew, ps = 2*ses, 
+           kurtosis=kurt, pk = 2*sek, max = 100*(max-1), min = 100*(min-1)))
 }
